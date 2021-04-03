@@ -10,8 +10,8 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     font-family:"TitleFont";
-    width: 100vw;
-    height: 100vh;
+    width: 99vw;
+    height: 99vh;
     margin: 0;
     
   }
@@ -52,6 +52,8 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 align-self: center;
+max-width: 100%;
+max-height: 100%;
 
 }
 .velo{
@@ -59,14 +61,14 @@ align-self: center;
 }
 .titulo h1{
     color: #ffb000;
-    font-size: 8rem;
+    font-size: 7rem;
     margin-bottom: initial;
     margin-top: auto;
 }
 .intro{
     color: #ffb000;
     font-size: 2rem;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
 }
 .juego{
 background-image: url(/images/game_background_2.png);
@@ -81,23 +83,26 @@ display: flex;
 flex-direction: row;
 justify-content: space-between;
 align-items: center;
+width: 500px;
 }
-.soundBtn{
+.secondaryBtn{
     width: 5rem;
     height: 4rem;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.soundBtn img{
+.secondaryBtn img{
     width: 3rem
 }
 .startBtn{
-    width: 11rem;
+    width: 15rem;
     height: 4rem;
-    margin: 0 2rem;
-    font-family:"TitleFont";
+    font-family: "TitleFont";
     font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     
 }
 .githubBtn img{
@@ -111,7 +116,7 @@ align-items: center;
     align-items: center;
 }
 .instrucciones{
-    color: #ffb000;
+    color: black;
     font-size: 2rem;
 }
 .instrucciones p{
@@ -119,4 +124,5 @@ align-items: center;
 }
 footer{
     color: #ffb000;
+    padding-bottom: 0.3rem;
 }
