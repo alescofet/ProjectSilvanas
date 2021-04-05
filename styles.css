@@ -10,8 +10,8 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     font-family:"TitleFont";
-    width: 99vw;
-    height: 99vh;
+    width: 100vw;
+    height: 100vh;
     margin: 0;
     
     
@@ -85,10 +85,10 @@ height: 532px;
 }
 .botones{
 display: flex;
-flex-direction: row;
+flex-direction: column;
 justify-content: space-between;
 align-items: center;
-width: 500px;
+width:150px 
 }
 .secondaryBtn{
     width: 5rem;
@@ -146,4 +146,10 @@ h5{
     border: 1px solid rgba(0,0,0,.2);
     border-radius: .3rem;
     outline: 0;
+}
+.botones-lat{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
