@@ -21,7 +21,7 @@ body {
     width: 250px;
     letter-spacing: 2px;
     border-radius: 8px;
-    font-family: 'Skranji', cursive;
+    font-family: "TitleFont";
     color: #ffc000;
     font-size: 18px;
     font-weight: 400;
@@ -45,6 +45,9 @@ body {
     background: radial-gradient(circle, #ec6a6a, #e52b2b);
     box-shadow: 0px 0 5px 5px rgba(255,255,255,0.2)
   }
+  .noHover{
+    pointer-events: none;
+}
 .contenedor{
 
 display: flex;
@@ -76,7 +79,8 @@ background-repeat: no-repeat;
 background-size: cover;
 margin-bottom: 1rem;
 border: solid 1rem #ffb000;
-border-radius: 3rem;
+border-radius: 1rem;
+height: 532px;
 }
 .botones{
 display: flex;
@@ -116,13 +120,29 @@ width: 500px;
     align-items: center;
 }
 .instrucciones{
-    color: black;
+    background-color: darkolivegreen;
+    color: #ffb000;
     font-size: 2rem;
 }
 .instrucciones p{
     margin:1rem;
 }
-footer{
+#footer{
     color: #ffb000;
     padding-bottom: 0.3rem;
+}
+h5{
+    font-size: 2rem;
+}
+.modal-content{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    pointer-events: auto;
+    background-color: darkolivegreen;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: .3rem;
+    outline: 0;
 }
