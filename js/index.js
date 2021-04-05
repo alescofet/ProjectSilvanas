@@ -149,11 +149,11 @@ window.onload = () => {
   let loadedAllImages = false;
   const loadedImages = {};
   const listOfUrls = {
-    player: "/images/Playerfixed.png",
-    enemy: "/images/Enemy2fixed.png",
-    playerSpell: `/images/playerSpell.png`,
-    enemySpell: `/images/enemySpell.png`,
-    avatar: `/images/avatar.png`,
+    player: "./images/Playerfixed.png",
+    enemy: "./images/Enemy2fixed.png",
+    playerSpell: `./images/playerSpell.png`,
+    enemySpell: `./images/enemySpell.png`,
+    avatar: `./images/avatar.png`,
   };
   let counterForLoadedImages = 0;
   let backgroundMusic;
@@ -217,17 +217,17 @@ window.onload = () => {
   };
 
   const loadAudios = () => {
-    backgroundMusic = new Audio("/sounds/BackgroundMusic.mp3");
+    backgroundMusic = new Audio("./sounds/BackgroundMusic.mp3");
     backgroundMusic.loop = true;
     backgroundMusic.volume = 0.2;
     backgroundMusic.muted = false;
 
-    playerHitAudio = new Audio("/sounds/PlayerHit.mp3");
-    enemyHitAudio = new Audio("/sounds/EnemyHit.mp3");
-    playerShotAudio = new Audio("/sounds/PlayerShot.mp3");
+    playerHitAudio = new Audio("./sounds/PlayerHit.mp3");
+    enemyHitAudio = new Audio("./sounds/EnemyHit.mp3");
+    playerShotAudio = new Audio("./sounds/PlayerShot.mp3");
     playerShotAudio.volume = 0.2;
-    winnerAudio = new Audio("/sounds/Winner.mp3");
-    loserAudio = new Audio("/sounds/Loser.mp3");
+    winnerAudio = new Audio("./sounds/Winner.mp3");
+    loserAudio = new Audio("./sounds/Loser.mp3");
   };
 
   const clearCanvas = () => {
