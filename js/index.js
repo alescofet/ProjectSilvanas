@@ -48,6 +48,46 @@ window.onload = () => {
       );
     }
   }
+  //EnemyClass
+  class Enemy2 {
+    constructor() {
+      this.img = ``;
+      this.width = 30;
+      this.height = 45;
+      this.x = ctx.canvas.width - 75;
+      this.y = 175 + enemySeparation;
+      this.health = 2;
+    }
+    drawSelf() {
+      ctx.drawImage(
+        loadedImages.enemy2,
+        this.x,
+        this.y,
+        this.width,
+        this.height
+      );
+    }
+  }
+  //EnemyClass
+  class Enemy3 {
+    constructor() {
+      this.img = ``;
+      this.width = 155;
+      this.height = 260;
+      this.x = ctx.canvas.width - 160;
+      this.y = 175;
+      this.health = 10;
+    }
+    drawSelf() {
+      ctx.drawImage(
+        loadedImages.enemy3,
+        this.x,
+        this.y,
+        this.width,
+        this.height
+      );
+    }
+  }
   //playerSpellClass
   class PlayerSpell {
     constructor() {
@@ -74,8 +114,8 @@ window.onload = () => {
   class EnemySpell {
     constructor() {
       this.img = ``;
-      this.width = 15;
-      this.height = 15;
+      this.width = 20;
+      this.height = 20;
       this.x = 0;
       this.y = 0;
     }
@@ -92,6 +132,49 @@ window.onload = () => {
       this.x -= 5;
     }
   }
+  class EnemySpell2 {
+    constructor() {
+      this.img = ``;
+      this.width = 15;
+      this.height = 15;
+      this.x = 0;
+      this.y = 0;
+    }
+    drawSelf() {
+      ctx.drawImage(
+        loadedImages.enemySpell2,
+        this.x,
+        this.y,
+        this.width,
+        this.height
+      );
+    }
+    moveSelf() {
+      this.x -= 5;
+    }
+  }
+  class EnemySpell3 {
+    constructor() {
+      this.img = ``;
+      this.width = 15;
+      this.height = 15;
+      this.x = 0;
+      this.y = 0;
+    }
+    drawSelf() {
+      ctx.drawImage(
+        loadedImages.enemySpell3,
+        this.x,
+        this.y,
+        this.width,
+        this.height
+      );
+    }
+    moveSelf() {
+      this.x -= 5;
+    }
+  }
+  
   //Health Bar
   class HealthBar {
     constructor() {
@@ -104,6 +187,33 @@ window.onload = () => {
     }
     setHealth() {
       this.health = player.health;
+    }
+    drawSelf() {
+      ctx.beginPath();
+      ctx.rect(this.x, this.y, this.maxWidth, this.height);
+      ctx.fillStyle = "black";
+      ctx.fill();
+      ctx.closePath();
+
+      ctx.beginPath();
+      let width = this.maxWidth * (this.health / this.maxHealth);
+      ctx.rect(this.x, this.y, width, this.height);
+      ctx.fillStyle = "red";
+      ctx.fill();
+      ctx.closePath();
+    }
+  }
+  class BossHealthBar {
+    constructor() {
+      this.maxHealth = 10;
+      this.maxWidth = 200;
+      this.height = 35;
+      this.health = this.maxHealth;
+      this.x = ctx.canvas.width-this.maxWidth-50-30;
+      this.y = 10;
+    }
+    setHealth() {
+      this.health = bossHealth;
     }
     drawSelf() {
       ctx.beginPath();
@@ -140,6 +250,24 @@ window.onload = () => {
       );
     }
   }
+  class AvatarBoss {
+    constructor() {
+      this.img = ``;
+      this.width = 50;
+      this.height = 50;
+      this.x = ctx.canvas.width - 60;
+      this.y = 10;
+    }
+    drawSelf() {
+      ctx.drawImage(
+        loadedImages.avatarBoss,
+        this.x,
+        this.y,
+        this.width,
+        this.height
+      );
+    }
+  }
   //Variables
   let animationFrame = true;
   const canvas = document.getElementById("canvas");
@@ -150,10 +278,15 @@ window.onload = () => {
   const loadedImages = {};
   const listOfUrls = {
     player: "./images/Playerfixed.png",
-    enemy: "./images/Enemy2fixed.png",
-    playerSpell: `./images/playerSpell.png`,
-    enemySpell: `./images/enemySpell.png`,
-    avatar: `./images/avatar.png`,
+    enemy: "./images/Enemy1.png",
+    enemy2:"./images/Enemy2.png",
+    enemy3:"./images/Enemy3.png",
+    playerSpell: "./images/playerSpell.png",
+    enemySpell: "./images/enemySpell.png",
+    enemySpell2: "./images/enemySpell2.png",
+    enemySpell3: "./images/enemySpell3.png",
+    avatar: "./images/avatar.png",
+    avatarBoss: "./images/avatarBoss.png"
   };
   let counterForLoadedImages = 0;
   let backgroundMusic;
@@ -166,13 +299,18 @@ window.onload = () => {
   const arrayOfEnemies = [];
   const arrayOfPlayerSpells = [];
   const arrayOfEnemySpells = [];
+  let bossHealth = 10
   const player = new Player();
   const avatar = new Avatar();
   const healthBar = new HealthBar();
-  let counter = 0;
+  const avatarBoss = new AvatarBoss()
+  const bossHealthBar = new BossHealthBar()
+  let counterRound1 = 0;
+  let counterRound2 = 0;
+  let counterRound3 = 0;
   let playerSpellCounter = 0;
   let enemySpellCounter = 0;
-  let score = 0;
+  let round = 0
 
   //DOM
 
@@ -242,14 +380,39 @@ window.onload = () => {
   const drawHealthBar = () => {
     healthBar.drawSelf();
   };
-  const createEnemies = () => {
-    if (counter !== 5) {
-      const enemy = new Enemy();
-      arrayOfEnemies.push(enemy);
-      counter++;
-      enemySeparation += 260 / 5;
+  const drawBossAvatar=()=>{
+    if (round === 2){
+      avatarBoss.drawSelf()
+    }
+  }
+  const drawBossHealthBar = () => {
+    if (round === 2){
+      bossHealthBar.setHealth()
+      bossHealthBar.drawSelf();
     }
   };
+  const createEnemies = () => {
+    if(round ===0){
+      if (counterRound1 !== 5) {
+      const enemy = new Enemy();
+      arrayOfEnemies.push(enemy);
+      counterRound1++;
+      enemySeparation += 260 / 5;
+    }
+  }else if(round === 1){
+    if (counterRound2 !== 5) {
+      const enemy2 = new Enemy2();
+      arrayOfEnemies.push(enemy2);
+      counterRound2++;
+      enemySeparation += 260 / 5;
+    }
+  }else if(round === 2){
+    if (counterRound3 !== 1) {
+    const enemy3 = new Enemy3();
+      arrayOfEnemies.push(enemy3);
+      counterRound3++;
+  }}
+}
   const drawEnemies = () => {
     arrayOfEnemies.forEach((enemy) => {
       enemy.drawSelf();
@@ -280,13 +443,30 @@ window.onload = () => {
   };
   const createEnemySpell = () => {
     arrayOfEnemies.forEach((enemy) => {
-      if (enemySpellCounter >= Math.random() * 50 + 20) {
+      if(round === 0)
+      {if (enemySpellCounter >= Math.random() * 50 + (25-round*2)) {
         const enemySpell = new EnemySpell();
         enemySpell.x = enemy.x;
         enemySpell.y = enemy.y + enemy.height / 2;
         arrayOfEnemySpells.push(enemySpell);
         enemySpellCounter = 0;
-      }
+      }}
+      if(round === 1)
+      {if (enemySpellCounter >= Math.random() * 50 + (25-round*1.5)) {
+        const enemySpell2 = new EnemySpell2();
+        enemySpell2.x = enemy.x;
+        enemySpell2.y = enemy.y + enemy.height / 2;
+        arrayOfEnemySpells.push(enemySpell2);
+        enemySpellCounter = 0;
+      }}
+      if(round === 2)
+      {if (enemySpellCounter >= Math.random() * 50 + (20-round*2)) {
+        const enemySpell3 = new EnemySpell3();
+        enemySpell3.x = enemy.x;
+        enemySpell3.y = (Math.random()*(430-175)+175);
+        arrayOfEnemySpells.push(enemySpell3);
+        enemySpellCounter = 0;
+      }}
     });
   };
   const drawEnemySpell = () => {
@@ -324,8 +504,8 @@ window.onload = () => {
               spell.y + spell.height >= enemy.y)
           ) {
             enemyHitAudio.play();
-            arrayOfEnemies.splice(index, 1);
-            score++;
+            enemy.health -= 1
+            if (round === 2){bossHealth--};
           }
         }
       });
@@ -350,10 +530,19 @@ window.onload = () => {
       gameOver = true;
     }
   };
+  const checkEnemyHealth = ()=>{
+    arrayOfEnemies.forEach((enemy,index)=>{
+      if (enemy.health === 0){
+        arrayOfEnemies.splice(index,1)
+      }
+    })
+  }
   const checkEnemies = () => {
     if (arrayOfEnemies.length === 0) {
-      winner = true;
+      round++
+      enemySeparation = 0
     }
+    if (round === 3){winner=true}
   };
   const changeButton = () => {
     document.getElementById("start").innerText = `Restart`;
@@ -402,6 +591,9 @@ window.onload = () => {
         drawHealthBar();
         createEnemies();
         drawEnemies();
+        drawBossAvatar()
+        drawBossHealthBar()
+        checkEnemies();
         checkForBoundaries();
         drawPlayerSpell();
         movePlayerSpell();
@@ -411,8 +603,7 @@ window.onload = () => {
         drawEnemySpell();
         moveEnemySpell();
         checkEnemySpellCollision();
-        checkEnemies();
-        /*  renderScore() */
+        checkEnemyHealth();
       } else if (gameOver) {
         gameLost();
       } else if (winner) {
