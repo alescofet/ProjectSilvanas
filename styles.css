@@ -1,12 +1,12 @@
 @font-face {
     font-family:"TitleFont";
-    src: url("/fonts/TitleFont.otf");
+    src: url("./fonts/TitleFont.otf");
 }
 
 body {
     padding: 0;
     text-align: center;
-    background-image: url(/images/BackgroundHTML.jpg);
+    background-image: url(./images/BackgroundHTML.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     font-family:"TitleFont";
