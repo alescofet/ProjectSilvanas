@@ -107,9 +107,9 @@ window.onload = () => {
       );
     }
     moveSelf() {
-      if(checkHz<90){
+      if(checkHz<74){
       this.x += 5;}
-      else{this.x +=2.5}
+      else{this.x +=3}
     }
   }
   //enemySpellClass
@@ -131,9 +131,9 @@ window.onload = () => {
       );
     }
     moveSelf() {
-      if(checkHz<90){
+      if(checkHz<74){
       this.x -= 5;}
-      else{this.x -=2.5}
+      else{this.x -=3}
     }
   }
   class EnemySpell2 {
@@ -154,9 +154,9 @@ window.onload = () => {
       );
     }
     moveSelf() {
-      if(checkHz<90){
+      if(checkHz<74){
       this.x -= 5;}
-      else{this.x -=2.5}
+      else{this.x -=3}
     }
   }
   class EnemySpell3 {
@@ -177,9 +177,9 @@ window.onload = () => {
       );
     }
     moveSelf() {
-      if(checkHz<90){
+      if(checkHz<74){
       this.x -= 5;}
-      else{this.x -=2.5}
+      else{this.x -=3}
     }
   }
   
