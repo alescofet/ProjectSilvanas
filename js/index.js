@@ -107,17 +107,17 @@ window.onload = () => {
       );
     }
     moveSelf() {
-      if(checkHz<74){
+      if(checkHz<75){
       this.x += 5;}
-      else{this.x +=3}
+      else{this.x +=2.5}
     }
   }
   //enemySpellClass
   class EnemySpell {
     constructor() {
       this.img = ``;
-      this.width = 20;
-      this.height = 20;
+      this.width = 15;
+      this.height = 15;
       this.x = 0;
       this.y = 0;
     }
@@ -131,9 +131,9 @@ window.onload = () => {
       );
     }
     moveSelf() {
-      if(checkHz<74){
+      if(checkHz<75){
       this.x -= 5;}
-      else{this.x -=3}
+      else{this.x -=2.5}
     }
   }
   class EnemySpell2 {
@@ -154,9 +154,9 @@ window.onload = () => {
       );
     }
     moveSelf() {
-      if(checkHz<74){
+      if(checkHz<75){
       this.x -= 5;}
-      else{this.x -=3}
+      else{this.x -=2.5}
     }
   }
   class EnemySpell3 {
@@ -177,9 +177,9 @@ window.onload = () => {
       );
     }
     moveSelf() {
-      if(checkHz<74){
+      if(checkHz<75){
       this.x -= 5;}
-      else{this.x -=3}
+      else{this.x -=2.5}
     }
   }
   
