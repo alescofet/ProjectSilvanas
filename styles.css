@@ -6,7 +6,7 @@
 body {
     padding: 0;
     text-align: center;
-    background-image: url(./images/BackgroundHTML.jpg);
+    background-image: url(./images/BackgroundHTMLOscuro.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     font-family:"TitleFont";
@@ -60,9 +60,7 @@ max-width: 100%;
 max-height: 100%;
 
 }
-.velo{
-    background-color: rgba(0,0,0, 0.5);
-}
+
 .titulo h1{
     color: #ffb000;
     font-size: 7rem;
