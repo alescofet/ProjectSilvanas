@@ -18,8 +18,6 @@ Ademas he utilizado estos recursos:
 ## Autor
 Alex Escofet Mata - [Alex Escofet](https://github.com/alescofet)
 ## Licencia
-<<<<<<< HEAD
 Este proyecto no esta sujeto a licencia.
-=======
-Este proyecto no esta sujeto a licencia.
->>>>>>> 006c3ed3e884668864c8942b02b96501a02376de
+
+
