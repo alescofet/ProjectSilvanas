@@ -16,7 +16,7 @@ Ademas he utilizado estos recursos:
 * [Opengameart](https://opengameart.org) --> Música y efectos de sonido.
 * [Icons8](https://icons8.com) --> Iconos de la interfaz.
 ## Autor
-Alex Escofet Mata - [Alex Escofet](https://github.com/alescofet)
+Alex Escofet Mata - [Alex Escofet](https://www.linkedin.com/in/alex-escofet-a08200157/)
 ## Licencia
 Este proyecto no esta sujeto a licencia.
 
