@@ -180,7 +180,7 @@ window.onload = () => {
       if(checkHz<75){
       this.x -= 5;}
       else{this.x -=2.5}
-    }
+      }
   }
   
   //Health Bar
